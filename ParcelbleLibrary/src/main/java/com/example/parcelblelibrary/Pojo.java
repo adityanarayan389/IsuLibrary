@@ -1,34 +1,33 @@
 package com.example.parcelblelibrary;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.Toast;
 
-public class ShowData implements Parcelable {
+public class Pojo implements Parcelable {
     private String userName;
     private String passWord;
+    private String id;
 
-    public ShowData(String userName, String passWord) {
+    public Pojo(String userName, String passWord, String id) {
         this.userName = userName;
         this.passWord = passWord;
     }
 
-    protected ShowData(Parcel in) {
+    protected Pojo(Parcel in) {
         userName = in.readString();
         passWord = in.readString();
+        id = in.readString();
     }
 
-    public static final Creator<ShowData> CREATOR = new Creator<ShowData>() {
+    public static final Creator<Pojo> CREATOR = new Creator<Pojo>() {
         @Override
-        public ShowData createFromParcel(Parcel in) {
-            return new ShowData(in);
+        public Pojo createFromParcel(Parcel in) {
+            return new Pojo(in);
         }
 
         @Override
-        public ShowData[] newArray(int size) {
-            return new ShowData[size];
+        public Pojo[] newArray(int size) {
+            return new Pojo[size];
         }
     };
 
@@ -48,7 +47,13 @@ public class ShowData implements Parcelable {
         this.passWord = passWord;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     @Override
     public int describeContents() {
@@ -59,5 +64,6 @@ public class ShowData implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(userName);
         parcel.writeString(passWord);
+        parcel.writeString(id);
     }
 }

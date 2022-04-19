@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.parcelblelibrary.ShowData;
+import com.example.parcelblelibrary.Pojo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
 //        ShowData.Show(this,"library");
 
         if(getIntent().hasExtra("data")){
-            ShowData name = getIntent().getParcelableExtra("data");
-            Toast.makeText(MainActivity.this,name.toString(),Toast.LENGTH_LONG).show();
+            Pojo name = getIntent().getParcelableExtra("data");
+            Toast.makeText(MainActivity.this,name.getUserName(),Toast.LENGTH_LONG).show();
         }
 
     }
