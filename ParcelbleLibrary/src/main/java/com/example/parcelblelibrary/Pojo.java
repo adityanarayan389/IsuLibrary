@@ -11,6 +11,7 @@ public class Pojo implements Parcelable {
     public Pojo(String userName, String passWord, String id) {
         this.userName = userName;
         this.passWord = passWord;
+        this.id =id;
     }
 
     protected Pojo(Parcel in) {
