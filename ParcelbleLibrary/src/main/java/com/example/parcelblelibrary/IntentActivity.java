@@ -18,12 +18,16 @@ public class IntentActivity extends AppCompatActivity {
              name = data.getUserName();
              password = data.getPassWord();
             Toast.makeText(IntentActivity.this,data.getId(),Toast.LENGTH_LONG).show();
-            ComponentName cName = new ComponentName("com.example.laststep","com.example.laststep.MainActivity");
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.putExtra("data", data);
-            intent.setComponent(cName);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            try {
+                ComponentName cName = new ComponentName("com.example.laststep", "com.example.laststep.MainActivity");
+                Intent intent = new Intent("android.intent.action.MAIN");
+                intent.putExtra("data", data);
+                intent.setComponent(cName);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(IntentActivity.this,"require application is not installed",Toast.LENGTH_LONG).show();
+            }
 
 
         }
