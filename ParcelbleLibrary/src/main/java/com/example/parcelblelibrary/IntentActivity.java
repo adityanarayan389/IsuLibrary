@@ -21,7 +21,8 @@ public class IntentActivity extends AppCompatActivity {
 //             password = data.getPassWord();
 //            Toast.makeText(IntentActivity.this,data.getId(),Toast.LENGTH_LONG).show();
             try {
-                JSONObject data = getIntent().getParcelableExtra("data");
+                JSONObject data = new JSONObject();
+                data = getIntent().getParcelableExtra("data");
                 ComponentName cName = new ComponentName("com.example.laststep", "com.example.laststep.MainActivity");
                 Intent intent = new Intent("android.intent.action.MAIN");
                 intent.putExtra("data", getIntent().hasExtra("data"));
