@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 public class IntentActivity extends AppCompatActivity {
    public String name,password;
     @Override
@@ -14,11 +16,12 @@ public class IntentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intent);
         if(getIntent().hasExtra("data")){
-//            Pojo data = getIntent().getParcelableExtra("data");
+
 //             name = data.getUserName();
 //             password = data.getPassWord();
 //            Toast.makeText(IntentActivity.this,data.getId(),Toast.LENGTH_LONG).show();
             try {
+                JSONObject data = getIntent().getParcelableExtra("data");
                 ComponentName cName = new ComponentName("com.example.laststep", "com.example.laststep.MainActivity");
                 Intent intent = new Intent("android.intent.action.MAIN");
                 intent.putExtra("data", getIntent().hasExtra("data"));
